@@ -1,16 +1,16 @@
-package com.example.hab_reboen.ui.home;
+package com.example.hab_reboen.ui.Running;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class RunningViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public RunningViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Daily running with partner ");
     }
 
     public LiveData<String> getText() {
