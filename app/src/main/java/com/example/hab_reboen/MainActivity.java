@@ -1,7 +1,8 @@
 package com.example.hab_reboen;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -48,7 +49,21 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch(id){
+            case R.id.action_settings:
+                gotoActivity(SettingsActivity.class);
+                return true;
+        }
+        //headerView.setText(item.getTitle());
+        return super.onOptionsItemSelected(item);
+    }
+    public void gotoActivity(Class nav_class){
+        Intent intent = new Intent(MainActivity.this, nav_class);
+        startActivity(intent);
+    }
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

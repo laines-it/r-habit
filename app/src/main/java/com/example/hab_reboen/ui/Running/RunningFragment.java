@@ -22,10 +22,13 @@ public class RunningFragment extends Fragment {
                 new ViewModelProvider(this).get(RunningViewModel.class);
 
         binding = FragmentRunningBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+
 
         final TextView textView = binding.textRunning;
+        final TextView partner_name = binding.partnerName;
+        partner_name.setText("Bob");
         RunningViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        View root = binding.getRoot();
         return root;
     }
 

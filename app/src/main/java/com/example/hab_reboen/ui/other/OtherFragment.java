@@ -23,22 +23,25 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.hab_reboen.databinding.FragmentGalleryBinding;
 
     public class OtherFragment extends Fragment {
 
         private @NonNull FragmentOtherBinding binding;
 
+        public OtherFragment() {
+
+        }
+
         public View onCreateView(@NonNull LayoutInflater inflater,
                                  ViewGroup container, Bundle savedInstanceState) {
-            OtherViewModel galleryViewModel =
+            OtherViewModel otherViewModel =
                     new ViewModelProvider(this).get(OtherViewModel.class);
 
              binding = FragmentOtherBinding.inflate(inflater, container, false);
             View root = binding.getRoot();
 
             final TextView textView = binding.textOther;
-            galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+            otherViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
             return root;
         }
 

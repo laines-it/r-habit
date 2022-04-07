@@ -27,4 +27,12 @@
         android:name="com.example.hab_reboen.ui.other.OtherFragment"
         android:label="fragment_other"
         tools:layout="@layout/fragment_other" />
+    <activity
+        android:id="@+id/nav_account"
+        android:name="com.example.hab_reboen.Account"
+        android:label="Account" />
+    <activity
+        android:id="@+id/nav_settings"
+        android:name="com.example.hab_reboen.SettingsActivity"
+        android:label="SettingsActivity" />
 </navigation>
