@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/side_nav_bar"
+            android:background="@drawable/back_in_black"
             app:popupTheme="@style/Theme.Habreboen.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -30,5 +30,4 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         app:srcCompat="@android:drawable/ic_dialog_email" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

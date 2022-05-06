@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "292298874371",
+    "firebase_url": "https://r-habits-dcdce-default-rtdb.firebaseio.com",
+    "project_id": "r-habits-dcdce",
+    "storage_bucket": "r-habits-dcdce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292298874371:android:017aba06b72b01318cb836",
+        "android_client_info": {
+          "package_name": "com.example.hab_reboen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292298874371-hsrafmpn5ec1f7sjvignmp2bu1qojncu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hab_reboen",
+            "certificate_hash": "34ee7815e5364d2a8608d42b408d131475994bcf"
+          }
+        },
+        {
+          "client_id": "292298874371-9jnpleqc4m8f3mmv6k1o0fr3j3la8q9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFnPTtM0sluorL4WMoUFKANkW_ze64pbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292298874371-9jnpleqc4m8f3mmv6k1o0fr3j3la8q9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

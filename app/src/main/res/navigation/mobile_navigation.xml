@@ -6,10 +6,10 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.hab_reboen.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_running"
+        android:name="com.example.hab_reboen.ui.Running.RunningFragment"
+        android:label="@string/menu_running"
+        tools:layout="@layout/fragment_running" />
 
     <fragment
         android:id="@+id/nav_gallery"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">hab-reboen</string>
+    <string name="app_name">R-Habit</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -109,10 +109,28 @@
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
 
+
+    <string name="ch1textt">
+        Исследование, опубликованное в издании «Журнал исследований счастья», показало, что физические упражнения поднимают настроение. Утренняя пробежка добавляет бодрости, снимает напряжение и задает позитивный настрой на весь день.
+Также бег может работать как антидепрессант. Исследование, опубликованное в журнале «Психосоматическая медицина», показало, что аэробные нагрузки помогают бороться с депрессией. Более того, эффект усиливается, когда человек входит в тренировочный режим и начинает верить в лечебную силу утренних занятий.
+Помимо этого, бег по утрам более предпочтителен, чем вечерние пробежки, если вы готовитесь к соревнованиям и следуете определенному тренировочному плану. Почти все забеги проводятся в первой половине дня. Бегая по утрам, вы привыкаете рано вставать и тренируетесь в условиях, приближенных к соревновательным.
+После утренней тренировки уже не надо беспокоиться о том, что придется бегать после работы. Можно сфокусироваться на рабочих задачах и не рассчитывать приемы пищи специально под вечернюю пробежку.
+    </string>
+
+    <string-array name="whoareyou">
+        <item>Кто ты?</item>
+        <item>Школьник</item>
+        <item>Студент</item>
+        <item>Работяга</item>
+    </string-array>
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+
 </resources>

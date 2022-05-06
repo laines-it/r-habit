@@ -31,16 +31,12 @@ public class Account extends AppCompatActivity{
         } catch (IOException ioe) {
             throw new Error("UnableToUpdateDatabase");
         }
-        try{
-            mDBHelper.openDataBase();
-        }catch (SQLException sqle){
-            throw sqle;
-        }
-        try {
-            mDb = mDBHelper.getWritableDatabase();
-        } catch (SQLException mSQLException) {
-            throw mSQLException;
-        }
+
+        mDBHelper.openDataBase();
+        mDb = mDBHelper.getWritableDatabase();
+
+        String this_id = "1";
+
         Cursor query = mDb.rawQuery("SELECT * FROM accounts;", null);
         TextView text_name = findViewById(R.id.profile_name);
         TextView text_city = findViewById(R.id.city);
@@ -49,7 +45,7 @@ public class Account extends AppCompatActivity{
         String name = "noname";
         String city = "nocity";
         String id = "noid";
-        while(!query.isAfterLast()){
+        while((query.getString(0).equals(this_id))){
             id = query.getString(0);
             name = query.getString(1);
             city = query.getString(2);
@@ -63,6 +59,7 @@ public class Account extends AppCompatActivity{
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
     }
     @Override
     public boolean onSupportNavigateUp() {
