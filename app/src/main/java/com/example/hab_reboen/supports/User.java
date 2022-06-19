@@ -1,5 +1,6 @@
-package com.example.hab_reboen.userdata;
+package com.example.hab_reboen.supports;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User{
@@ -9,6 +10,7 @@ public class User{
     public String city;
     public Date date_birth;
     public String soc_status;
+    public ArrayList habits;
     public User(String id, String name, String email,String city, Date date_birth, String soc_status){
         this.id = id;
         this.name = name;

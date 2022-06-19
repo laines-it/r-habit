@@ -1,7 +1,5 @@
 package com.example.hab_reboen.registration;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.hab_reboen.R;
-import com.example.hab_reboen.userdata.User;
+import com.example.hab_reboen.supports.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,12 +30,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     TextView text;
     Spinner spinner;
     DatabaseReference myRef;
-    FirebaseAuth myAuth;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
+        getSupportActionBar().hide();
          name = findViewById(R.id.name_edit);
          city = findViewById(R.id.city_edit);
          date = findViewById(R.id.date_edit);
@@ -106,11 +106,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         button.setOnClickListener((View.OnClickListener) this);
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://r-habits-dcdce-default-rtdb.firebaseio.com");
         myRef = database.getReference();
-        myAuth = FirebaseAuth.getInstance();
-        if (myAuth.getCurrentUser() != null){
-            finish();
-            return;
-        }
     }
 
     @Override
@@ -126,7 +121,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 text.setText("Заполнены не все поля");
             } else {
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                String id = myRef.getKey();
+               String id = myRef.getKey();
                 User user = null;
                 String email = getIntent().getStringExtra("keyemail");
                 try {
@@ -134,8 +129,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                myRef.child("User").setValue(user);
+                myRef.child("User").push().setValue(user);
                 Intent intent = new Intent(RegistrationActivity.this, ChooseHabitActivity.class);
+
                 startActivity(intent);
             }
         }

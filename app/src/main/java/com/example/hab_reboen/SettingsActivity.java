@@ -57,7 +57,7 @@ public class SettingsActivity extends AppCompatActivity implements
 
             return false;
         }
-        Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+        Intent intent = new Intent(SettingsActivity.this, HabitActivity.class);
         startActivity(intent);
         return false;
     }

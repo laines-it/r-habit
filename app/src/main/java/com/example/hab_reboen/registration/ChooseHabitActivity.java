@@ -1,25 +1,19 @@
 package com.example.hab_reboen.registration;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.hab_reboen.MainActivity;
-import com.example.hab_reboen.OnSwipeTouchListener;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hab_reboen.HabitActivity;
 import com.example.hab_reboen.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ChooseHabitActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;
@@ -29,11 +23,12 @@ public class ChooseHabitActivity extends AppCompatActivity implements View.OnCli
     ImageView mu;
     ImageView sc;
     ImageView ha;
+    DatabaseReference myRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_habit);
-
+        getSupportActionBar().hide();
         button = findViewById(R.id.select_new_habit);
         button.setVisibility(View.INVISIBLE);
         button.setOnClickListener(this);
@@ -48,6 +43,8 @@ public class ChooseHabitActivity extends AppCompatActivity implements View.OnCli
         mu.setOnClickListener(this);
         sc.setOnClickListener(this);
         ha.setOnClickListener(this);
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://r-habits-dcdce-default-rtdb.firebaseio.com");
+        myRef = database.getReference();
     }
 
     @Override
@@ -70,7 +67,7 @@ public class ChooseHabitActivity extends AppCompatActivity implements View.OnCli
                 button.setVisibility(View.VISIBLE);
                 break;
             case R.id.select_new_habit:
-                Intent intent2main = new Intent(ChooseHabitActivity.this, MainActivity.class);
+                Intent intent2main = new Intent(ChooseHabitActivity.this, HabitActivity.class);
                 startActivity(intent2main);
                 break;
         }
