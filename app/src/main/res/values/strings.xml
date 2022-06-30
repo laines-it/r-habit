@@ -2,14 +2,9 @@
     <string name="app_name">R-Habit</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
     <string name="menu_running">Running</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -117,11 +112,11 @@
 После утренней тренировки уже не надо беспокоиться о том, что придется бегать после работы. Можно сфокусироваться на рабочих задачах и не рассчитывать приемы пищи специально под вечернюю пробежку.
     </string>
 
-    <string-array name="whoareyou">
-        <item>Кто ты?</item>
-        <item>Школьник</item>
-        <item>Студент</item>
-        <item>Работяга</item>
+    <string-array name="sexes">
+        <item>Sex</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
     </string-array>
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
@@ -132,5 +127,9 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <!--Quotes-->
 </resources>

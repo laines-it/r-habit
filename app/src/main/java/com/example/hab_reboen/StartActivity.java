@@ -38,6 +38,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.button_login:
                 Intent intent2main = new Intent(StartActivity.this, ProfileActivity.class);
+                intent2main.putExtra("keyUserID","3");
                 startActivity(intent2main);
                 break;
             case R.id.button_create_account:

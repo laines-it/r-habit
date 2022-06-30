@@ -89,8 +89,6 @@ public class HabitActivity extends AppCompatActivity implements View.OnClickList
         String habit = "Running";
         String article = "sports1";
         String[] articles_info = {"Title","Text","Image"};
-        mRef.child("Articles");
-        mRef.child(habit);
         mRef.child("Articles").child(habit).addValueEventListener(new ValueEventListener() {
             @SuppressLint("UseCompatLoadingForDrawables")
             @Override

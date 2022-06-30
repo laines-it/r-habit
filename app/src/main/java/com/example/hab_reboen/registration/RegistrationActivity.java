@@ -7,17 +7,23 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hab_reboen.R;
-import com.example.hab_reboen.supports.User;
+import com.example.hab_reboen.supports.for_user.HiddenInfo;
+import com.example.hab_reboen.supports.for_user.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,16 +35,19 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     EditText date;
     TextView text;
     Spinner spinner;
+    CheckBox sex_hide;
+    CheckBox date_hide;
+    CheckBox city_hide;
     DatabaseReference myRef;
+    Button button;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         getSupportActionBar().hide();
+        date = findViewById(R.id.date_of_birth_edit);
          name = findViewById(R.id.name_edit);
-         city = findViewById(R.id.city_edit);
-         date = findViewById(R.id.date_edit);
          date.addTextChangedListener(new TextWatcher() {
              private String current = "";
              private final Calendar cal = Calendar.getInstance();
@@ -100,36 +109,65 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
              }
          });
-         spinner = findViewById(R.id.whoareyou_spinner);
+         spinner = findViewById(R.id.sex_spinner);
          text = findViewById(R.id.text_message);
-        Button button = findViewById(R.id.end);
+         button = findViewById(R.id.save_changes_profile);
+         city = findViewById(R.id.city_edit);
         button.setOnClickListener((View.OnClickListener) this);
+        sex_hide = findViewById(R.id.sex_is_hide);
+        date_hide = findViewById(R.id.date_of_birth_is_hide);
+        city_hide = findViewById(R.id.city_is_hide);
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://r-habits-dcdce-default-rtdb.firebaseio.com");
         myRef = database.getReference();
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.end) {
+        if (view.getId() == R.id.save_changes_profile) {
             String entered_name = name.getText().toString();
             String entered_city = city.getText().toString();
             String entered_date = date.getText().toString();
             String[] date_array = entered_date.split("\\.");
             boolean errorindate = (date_array.length == 0);
-            String selected_who = spinner.getSelectedItem().toString();
-            if (entered_name.equals("") | entered_city.equals("") | entered_date.equals("") | selected_who.equals("Кто ты?")) {
+            String selected_sex = spinner.getSelectedItem().toString();
+            if (entered_name.equals("") | entered_city.equals("") | entered_date.equals("") | selected_sex.equals("Sex")) {
                 text.setText("Заполнены не все поля");
             } else {
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-               String id = myRef.getKey();
-                User user = null;
-                String email = getIntent().getStringExtra("keyemail");
-                try {
-                    user = new User(id,entered_name,email,entered_city,formatter.parse(entered_date),selected_who);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                myRef.child("User").push().setValue(user);
+
+                myRef.child("User").orderByKey().limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot s : snapshot.getChildren()){
+                            int id = Integer.parseInt(s.getKey())+1;
+                            User user = null;
+                            String email = getIntent().getStringExtra("keyemail");
+                            try {
+                                int sex = 0;
+                                    if(selected_sex.equals("Male")){
+                                         sex = 1;
+
+                                    }else{
+                                        if(selected_sex.equals("Female")){
+                                             sex = 2;
+                                        }
+                                    }
+                                HiddenInfo hiddenInfo = new HiddenInfo(sex_hide.isChecked(),date_hide.isChecked(),city_hide.isChecked());
+                                user = new User(id,entered_name,email,entered_city,formatter.parse(entered_date),sex,hiddenInfo);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            System.out.println(id);
+                            myRef.child("User").child(String.valueOf(id)).push().setValue(user);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
                 Intent intent = new Intent(RegistrationActivity.this, ChooseHabitActivity.class);
 
                 startActivity(intent);

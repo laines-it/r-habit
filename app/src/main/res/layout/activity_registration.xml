@@ -5,198 +5,343 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".registration.RegistrationActivity"
-    android:background="@drawable/back_register"
+    android:background="@drawable/grad_yellow"
 
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:weightSum="100"
-        android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
-            android:weightSum="100">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="66"
-                android:src="@drawable/rabbit_smile" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="33">
-
-                <ImageView
-
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="33"
-                    android:src="@drawable/cloud_speech"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/berlinsansbold"
-                    android:text="Добро пожаловать в R-Habit"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.35000002">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/text_message"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gillsans"
-                    android:text="Перед тем, как мы начнем работать, пожалуйста, введи необходимую информацию в поля ниже"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView2">
-
-                </TextView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="45" />
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="10"
-            android:weightSum="100">
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:textColor="@color/white"
-                android:id="@+id/name_edit"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Имя"
-                android:fontFamily="@font/gillsans"
-                android:layout_weight="20"/>
-
-            <EditText
-                android:textColor="@color/white"
-                android:id="@+id/city_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/gillsans"
-                android:hint="Город"
-                android:layout_weight="20"/>
-
-            <EditText
-                android:textColor="@color/white"
-                android:id="@+id/date_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:hint="Дата рождения"
-                android:fontFamily="@font/gillsans"
-                android:ems="10"
-                android:inputType="date" />
-
-            <Spinner
-                android:id="@+id/whoareyou_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:entries="@array/whoareyou"
-                android:fontFamily="@font/gillsans"
-                android:layout_weight="20" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20">
-
-                <Button
-                    android:id="@+id/end"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gillsans"
-                    android:text="Далее"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="45" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40" />
-            <ImageView
-                android:layout_weight="20"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:src="@drawable/dots1"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40" />
+                app:layout_constraintTop_toTopOf="parent">
 
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:weightSum="100">
 
-    </LinearLayout>
+                    <io.github.florent37.shapeofview.shapes.CircleView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="27"
+                        android:elevation="4dp"
+                        app:shape_circle_borderColor="@color/white"
+                        app:shape_circle_borderWidth="3dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rabbit" />
+
+                    </io.github.florent37.shapeofview.shapes.CircleView>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="46" />
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/selected_quote"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="27"
+                        android:elevation="4dp"
+                        app:shape_roundRect_borderColor="@android:color/white"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="20dp"
+                        app:shape_roundRect_bottomRightRadius="20dp"
+
+                        app:shape_roundRect_topLeftRadius="20dp"
+                        app:shape_roundRect_topRightRadius="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:orientation="vertical"
+                            android:weightSum="100">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="33"
+                                android:fontFamily="@font/berlinsansbold"
+                                android:text="Работать надо не 10 часов в сутки, а неграм" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="66"
+                                android:weightSum="100">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="30"
+                                    android:background="@drawable/back_in_black"
+                                    android:text="(c) Стив Джобс"
+                                    android:textColor="@color/white" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="70"
+                                    android:src="@color/gold" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:weightSum="100">
+
+                        <io.github.florent37.shapeofview.shapes.RoundRectView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="30dp"
+                            android:elevation="4dp"
+                            app:shape_roundRect_borderColor="@android:color/black"
+                            app:shape_roundRect_borderWidth="1dp"
+                            app:shape_roundRect_bottomLeftRadius="10dp"
+                            app:shape_roundRect_bottomRightRadius="10dp"
+                            app:shape_roundRect_topLeftRadius="10dp"
+                            app:shape_roundRect_topRightRadius="10dp">
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/back_in_black" />
+
+                            <EditText
+                                android:id="@+id/name_edit"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="10dp"
+                                android:fontFamily="@font/gareta"
+                                android:gravity="center_vertical"
+                                android:hint="Name"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white"
+                                android:textSize="15sp" />
+
+                        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="30dp"
+                            android:weightSum="100">
+
+                            <io.github.florent37.shapeofview.shapes.RoundRectView
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="55"
+                                android:elevation="4dp"
+                                app:shape_roundRect_borderColor="@android:color/black"
+                                app:shape_roundRect_borderWidth="1dp"
+                                app:shape_roundRect_bottomLeftRadius="10dp"
+                                app:shape_roundRect_bottomRightRadius="10dp"
+                                app:shape_roundRect_topLeftRadius="10dp"
+                                app:shape_roundRect_topRightRadius="10dp">
+
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_in_black" />
+
+                                <Spinner
+                                    android:id="@+id/sex_spinner"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="10dp"
+                                    android:entries="@array/sexes"
+                                    android:fontFamily="@font/gareta"
+                                    android:textColor="@color/white" />
+
+                            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="25"
+                                android:gravity="center_vertical|end"
+                                android:text="Hide?" />
+
+                            <CheckBox
+                                android:id="@+id/sex_is_hide"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="30dp"
+                            android:weightSum="100">
+
+                            <io.github.florent37.shapeofview.shapes.RoundRectView
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="80"
+                                android:elevation="4dp"
+                                app:shape_roundRect_borderColor="@android:color/black"
+                                app:shape_roundRect_borderWidth="1dp"
+                                app:shape_roundRect_bottomLeftRadius="10dp"
+                                app:shape_roundRect_bottomRightRadius="10dp"
+                                app:shape_roundRect_topLeftRadius="10dp"
+                                app:shape_roundRect_topRightRadius="10dp">
+
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_in_black" />
+
+                                <EditText
+                                    android:id="@+id/date_of_birth_edit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="10dp"
+                                    android:fontFamily="@font/gareta"
+                                    android:gravity="center_vertical"
+                                    android:hint="Date of birth"
+                                    android:textColor="@color/white"
+                                    android:textColorHint="@color/white"
+                                    android:textSize="15sp" />
+
+
+                            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                            <CheckBox
+                                android:id="@+id/date_of_birth_is_hide"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="30dp"
+                            android:weightSum="100">
+
+                            <io.github.florent37.shapeofview.shapes.RoundRectView
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="80"
+                                android:elevation="4dp"
+                                app:shape_roundRect_borderColor="@android:color/black"
+                                app:shape_roundRect_borderWidth="1dp"
+                                app:shape_roundRect_bottomLeftRadius="10dp"
+                                app:shape_roundRect_bottomRightRadius="10dp"
+                                app:shape_roundRect_topLeftRadius="10dp"
+                                app:shape_roundRect_topRightRadius="10dp">
+
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_in_black" />
+
+                                <EditText
+                                    android:id="@+id/city_edit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="10dp"
+                                    android:fontFamily="@font/gareta"
+                                    android:gravity="center_vertical"
+                                    android:hint="City"
+                                    android:textColor="@color/white"
+                                    android:textColorHint="@color/white"
+                                    android:textSize="15sp" />
+
+
+                            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                            <CheckBox
+                                android:id="@+id/city_is_hide"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/save_changes_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Save changes" />
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
