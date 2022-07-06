@@ -65,7 +65,6 @@ public class HabitActivity extends AppCompatActivity implements View.OnClickList
 ////            lp.addRule(RelativeLayout.CENTER_IN_PARENT);
 //            imageView.setLayoutParams(lp);
             imageView.setMaxWidth(100/hashs.length);
-            System.out.println(100/hashs.length);
             imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             imageView.setImageDrawable(rect_hash.get(new Random().nextInt(rect_hash.size())));
 //            imageView.setImageDrawable(rect_hash.get(0));

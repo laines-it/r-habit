@@ -9,13 +9,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hab_reboen.ChooseQuoteProfile;
 import com.example.hab_reboen.R;
+import com.example.hab_reboen.supports.Quote;
 import com.example.hab_reboen.supports.for_user.HiddenInfo;
 import com.example.hab_reboen.supports.for_user.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,17 +34,25 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, ChooseQuoteProfile.OnInputListener {
+    private static final String TAG = "RegistrationActivity";
     EditText name;
     EditText city;
     EditText date;
-    TextView text;
     Spinner spinner;
     CheckBox sex_hide;
     CheckBox date_hide;
     CheckBox city_hide;
     DatabaseReference myRef;
     Button button;
+    TextView text_selected_quote;
+    View selected_quote;
+    TextView name_selected_author;
+    TextView about_selected_author;
+    ImageView rank_selected_quote;
+    View round_quo;
+    Quote quote;
+    LinearLayout layout_for_quotes;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,13 +123,19 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
              }
          });
          spinner = findViewById(R.id.sex_spinner);
-         text = findViewById(R.id.text_message);
          button = findViewById(R.id.save_changes_profile);
          city = findViewById(R.id.city_edit);
         button.setOnClickListener((View.OnClickListener) this);
         sex_hide = findViewById(R.id.sex_is_hide);
         date_hide = findViewById(R.id.date_of_birth_is_hide);
         city_hide = findViewById(R.id.city_is_hide);
+        text_selected_quote = findViewById(R.id.text_selected_quote);
+        selected_quote = findViewById(R.id.place_selected_quote);
+        selected_quote.setClickable(true);
+        selected_quote.setOnClickListener(this);
+        name_selected_author = findViewById(R.id.name_selected_author);
+        about_selected_author = findViewById(R.id.about_selected_author);
+        rank_selected_quote = findViewById(R.id.rank_selected_quote);
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://r-habits-dcdce-default-rtdb.firebaseio.com");
         myRef = database.getReference();
     }
@@ -124,6 +143,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.save_changes_profile) {
+            String selected_quote = text_selected_quote.getText().toString();
             String entered_name = name.getText().toString();
             String entered_city = city.getText().toString();
             String entered_date = date.getText().toString();
@@ -131,47 +151,72 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             boolean errorindate = (date_array.length == 0);
             String selected_sex = spinner.getSelectedItem().toString();
             if (entered_name.equals("") | entered_city.equals("") | entered_date.equals("") | selected_sex.equals("Sex")) {
-                text.setText("Заполнены не все поля");
+                Toast.makeText(this,"Заполнены не все поля",Toast.LENGTH_LONG).show();
             } else {
-                @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                if (!selected_quote.equals("Choose your quote")) {
+                    @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-                myRef.child("User").orderByKey().limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot s : snapshot.getChildren()){
-                            int id = Integer.parseInt(s.getKey())+1;
-                            User user = null;
-                            String email = getIntent().getStringExtra("keyemail");
-                            try {
-                                int sex = 0;
-                                    if(selected_sex.equals("Male")){
-                                         sex = 1;
+                    myRef.child("User").orderByKey().limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot s : snapshot.getChildren()) {
+                                int id = Integer.parseInt(s.getKey()) + 1;
+                                User user = null;
+                                String email = getIntent().getStringExtra("keyemail");
+                                try {
+                                    int sex = 0;
+                                    if (selected_sex.equals("Male")) {
+                                        sex = 1;
 
-                                    }else{
-                                        if(selected_sex.equals("Female")){
-                                             sex = 2;
+                                    } else {
+                                        if (selected_sex.equals("Female")) {
+                                            sex = 2;
                                         }
                                     }
-                                HiddenInfo hiddenInfo = new HiddenInfo(sex_hide.isChecked(),date_hide.isChecked(),city_hide.isChecked());
-                                user = new User(id,entered_name,email,entered_city,formatter.parse(entered_date),sex,hiddenInfo);
-                            } catch (ParseException e) {
-                                e.printStackTrace();
+                                    HiddenInfo hiddenInfo = new HiddenInfo(sex_hide.isChecked(), date_hide.isChecked(), city_hide.isChecked());
+                                    user = new User(id, entered_name, email, entered_city, formatter.parse(entered_date), sex, hiddenInfo,quote);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                                System.out.println(id);
+                                myRef.child("User").child(String.valueOf(id)).push().setValue(user);
                             }
-                            System.out.println(id);
-                            myRef.child("User").child(String.valueOf(id)).push().setValue(user);
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
 
-                Intent intent = new Intent(RegistrationActivity.this, ChooseHabitActivity.class);
+                    Intent intent = new Intent(RegistrationActivity.this, ChooseHabitActivity.class);
 
-                startActivity(intent);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(this,"Цитата не выбрана",Toast.LENGTH_LONG).show();
+                }
             }
         }
+        if(view.getId() == R.id.place_selected_quote){
+            ChooseQuoteProfile chooseQuoteProfile = new ChooseQuoteProfile();
+            chooseQuoteProfile.show(getSupportFragmentManager(),"Fragment");
+            System.out.println("OK");
+        }
+    }
+
+    @Override
+    public void sendInput(Quote quote) {
+        this.quote = quote;
+            text_selected_quote.setText(quote.getText());
+            name_selected_author.setText(quote.getAuthor());
+            about_selected_author.setText(quote.getCountry()+", "+quote.getYear());
+            switch (quote.getRank()) {
+                case (1): rank_selected_quote.setImageResource(R.color.rank1);break;
+                case (2): rank_selected_quote.setImageResource(R.color.rank2);break;
+                case (3): rank_selected_quote.setImageResource(R.color.rank3);break;
+                case (4): rank_selected_quote.setImageResource(R.color.rank4);break;
+                case (5): rank_selected_quote.setImageResource(R.color.rank5);break;
+        }
+
     }
 }

@@ -1,5 +1,7 @@
 package com.example.hab_reboen.supports.for_user;
 
+import com.example.hab_reboen.supports.Quote;
+
 import java.util.Date;
 
 public class User{
@@ -10,9 +12,11 @@ public class User{
     public Date date_birth;
     public int sex;
     public HiddenInfo hiddenInfo;
+    public Quote quote;
 //    public ArrayList habits;
     public User(){}
-    public User(int id, String name, String email,String city, Date date_birth, int sex, HiddenInfo hiddenInfo){
+    public User(int id, String name, String email,String city, Date date_birth, int sex, HiddenInfo hiddenInfo,Quote quote){
+        this.quote = quote;
         this.id = id;
         this.name = name;
         this.email = email;
@@ -24,6 +28,14 @@ public class User{
 
     public HiddenInfo getHiddenInfo() {
         return hiddenInfo;
+    }
+
+    public Quote getQuote() {
+        return quote;
+    }
+
+    public void setQuote(Quote quote) {
+        this.quote = quote;
     }
 
     public void setHiddenInfo(HiddenInfo hiddenInfo) {
