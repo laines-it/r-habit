@@ -37,16 +37,16 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_login:
-                Intent intent2main = new Intent(StartActivity.this, ProfileActivity.class);
-                intent2main.putExtra("keyUserID","3");
-                startActivity(intent2main);
+                Intent intent2profile = new Intent(StartActivity.this, ProfileActivity.class);
+                intent2profile.putExtra("keyUserID","3");
+                startActivity(intent2profile);
                 break;
             case R.id.button_create_account:
                 Intent intent2reg = new Intent(StartActivity.this, RegistrationPasswordActivity.class);
                 startActivity(intent2reg);
                 break;
             case R.id.skip_button:
-                Intent intent2skip = new Intent(StartActivity.this, HabitActivity.class);
+                Intent intent2skip = new Intent(StartActivity.this, HabitCalendarActivity.class);
                 startActivity(intent2skip);
                 break;
         }

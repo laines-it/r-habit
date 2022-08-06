@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, ChooseQuoteProfile.OnInputListener {
     private static final String TAG = "RegistrationActivity";
@@ -154,7 +155,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 Toast.makeText(this,"Заполнены не все поля",Toast.LENGTH_LONG).show();
             } else {
                 if (!selected_quote.equals("Choose your quote")) {
-                    @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+
 
                     myRef.child("User").orderByKey().limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -163,35 +165,36 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                                 int id = Integer.parseInt(s.getKey()) + 1;
                                 User user = null;
                                 String email = getIntent().getStringExtra("keyemail");
-                                try {
-                                    int sex = 0;
-                                    if (selected_sex.equals("Male")) {
-                                        sex = 1;
+                                int sex = 0;
+                                if (selected_sex.equals("Male")) {
+                                    sex = 1;
 
-                                    } else {
-                                        if (selected_sex.equals("Female")) {
-                                            sex = 2;
-                                        }
+                                } else {
+                                    if (selected_sex.equals("Female")) {
+                                        sex = 2;
                                     }
+                                }
+                                try {
+                                    @SuppressLint("SimpleDateFormat") long epoch = Objects.requireNonNull(new SimpleDateFormat("dd/MM/yyyy").parse(entered_date)).getTime();
                                     HiddenInfo hiddenInfo = new HiddenInfo(sex_hide.isChecked(), date_hide.isChecked(), city_hide.isChecked());
-                                    user = new User(id, entered_name, email, entered_city, formatter.parse(entered_date), sex, hiddenInfo,quote);
+                                    user = new User(id, entered_name, email, entered_city, epoch, sex, hiddenInfo,quote);
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
                                 System.out.println(id);
                                 myRef.child("User").child(String.valueOf(id)).push().setValue(user);
+                                Intent intent = new Intent(RegistrationActivity.this, ChooseHabitActivity.class);
+                                intent.putExtra("keyID",id);
+                                startActivity(intent);
                             }
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
 
-                    Intent intent = new Intent(RegistrationActivity.this, ChooseHabitActivity.class);
 
-                    startActivity(intent);
                 }else{
                     Toast.makeText(this,"Цитата не выбрана",Toast.LENGTH_LONG).show();
                 }

@@ -1,4 +1,4 @@
-package com.example.hab_reboen;
+package com.example.hab_reboen.supports;
 
 import android.content.Context;
 import android.view.GestureDetector;

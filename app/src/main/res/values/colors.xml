@@ -11,6 +11,10 @@
     <color name="rank1">#B5B5B5</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="white_our">#FFEEE0</color>
     <color name="grey">#858585</color>
     <color name="grey_dark">#686868</color>
+    <color name="back_in_black_dark">#CE000000</color>
+    <color name="back_in_black">#BA000000</color>
+    <color name="back_in_black_very_dark">#E2000000</color>
 </resources>

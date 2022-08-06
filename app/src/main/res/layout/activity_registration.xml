@@ -10,7 +10,6 @@
     android:orientation="vertical">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -339,42 +338,27 @@
                 </LinearLayout>
 
                 <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_marginTop="25dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="10dp"
+                    app:shape_roundRect_bottomRightRadius="10dp"
+                    app:shape_roundRect_topLeftRadius="10dp"
+                    app:shape_roundRect_topRightRadius="10dp">
 
                     <Button
                         android:id="@+id/save_changes_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/opensansmedium"
                         android:text="Save changes" />
                 </io.github.florent37.shapeofview.shapes.RoundRectView>
 
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--    <io.github.florent37.shapeofview.shapes.RoundRectView-->
-<!--        android:id="@+id/round_quo"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="500dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:elevation="4dp"-->
-<!--        app:shape_roundRect_borderColor="@android:color/black"-->
-<!--        app:shape_roundRect_borderWidth="1dp"-->
-<!--        app:shape_roundRect_bottomLeftRadius="20dp"-->
-<!--        app:shape_roundRect_bottomRightRadius="20dp"-->
-<!--        app:shape_roundRect_topLeftRadius="20dp"-->
-<!--        app:shape_roundRect_topRightRadius="20dp"-->
-<!--        android:visibility="invisible">-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout_fragment_choose_quote_profile"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical" />-->
-<!--    </io.github.florent37.shapeofview.shapes.RoundRectView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

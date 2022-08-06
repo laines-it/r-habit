@@ -5,226 +5,193 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".registration.RegistrationActivity"
-    android:background="@drawable/back_register"
+    android:background="@drawable/grad_yellow"
 
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:weightSum="100"
-        android:orientation="vertical">
+        app:layout_constraintVertical_bias="0.0">
 
+        <ProgressBar
+            android:layout_marginTop="10dp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progress="30"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:progressDrawable="@drawable/progress_bar_horizontal_white"
+            android:layout_weight="95" />
 
         <LinearLayout
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
-            android:weightSum="100">
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:weightSum="40">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="66"
-                android:src="@drawable/rabbit_smile" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="33">
+                android:layout_weight="15"
+                android:weightSum="100">
 
                 <ImageView
-
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="33"
-                    android:src="@drawable/cloud_speech"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_weight="70"
+                    android:src="@drawable/rabbit_speaks" />
 
-                <TextView
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
 
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/berlinsansbold"
-                    android:text="Пора выбрать новую привычку!"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.35000002">
+                    android:layout_weight="30">
 
-                </TextView>
+                    <ImageView
 
-                <TextView
-                    android:id="@+id/text_message"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gillsans"
-                    android:text="Выбери сначала тему"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView2">
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/reg_habit_title" />
 
-                </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/opensansbold"
+                        android:gravity="center"
+                        android:text="Choose habit"
+                        android:textSize="20sp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="50"
-            android:orientation="vertical"
-            android:weightSum="100">
-
-            <HorizontalScrollView
-                android:id="@+id/choose_area"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="20"
-                >
+                android:layout_weight="10"
+                android:orientation="vertical"
+                android:weightSum="100">
+
+                <HorizontalScrollView
+                    android:id="@+id/choose_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:id="@+id/drawinghabitchoose"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/drawing_logo"/>
+
+                        <ImageView
+                            android:id="@+id/languagehabitchoose"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:scaleType="centerInside"
+                            android:layout_weight="1"
+                            android:src="@drawable/languages_learning_logo" />
+                        <ImageView
+                            android:id="@+id/readinghabitchoose"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="centerInside"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/reading_logo" />
+
+
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="160"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="vertical"
+                    android:layout_weight="60"
+                    android:weightSum="100">
 
-                    <ImageView
-                        android:id="@+id/readinghabitchoose"
+                    <TextView
+                        android:id="@+id/name_of_habit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="20"
-                        android:src="@drawable/reading_habit_logo" />
-                    <ImageView
-                        android:id="@+id/musichabitchoose"
-                        android:layout_weight="20"
-                        android:scaleType="centerInside"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/music_habit_logo" />
+                        android:textSize="25sp"
+                        android:fontFamily="@font/berlinsansbold"
+                        android:layout_weight="22"
+                        android:gravity="center"
+                        />
 
-                    <ImageView
-                        android:id="@+id/sciencehabitchoose"
-                        android:layout_weight="20"
-                        android:scaleType="centerInside"
-                        android:layout_width="match_parent"
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="200dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/science_habit_logo" />
-                    <ImageView
-                        android:layout_weight="20"
-                        android:scaleType="centerInside"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/rabbit" />
-                    <ImageView
-                        android:id="@+id/handicrafthabitchoose"
-                        android:layout_weight="20"
-                        android:scaleType="centerInside"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/handicraft_habit_logo" />
-                    <ImageView
-                        android:layout_weight="20"
-                        android:scaleType="centerInside"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/rabbit" />
+                        android:layout_weight="48"
+                        app:shape_roundRect_borderColor="@android:color/black"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_topRightRadius="10dp" >
 
-                    <ImageView
-                        android:layout_weight="20"
-                        android:scaleType="centerInside"
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/back_in_black_dark"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+                    <TextView
+                        android:id="@+id/description_habit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/rabbit" />
-                    <ImageView
-                        android:layout_weight="20"
-                        android:scaleType="centerInside"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/rabbit" />
-
-
-
+                        android:layout_weight="30"
+                        android:fontFamily="@font/opensansbold"
+                        android:gravity="center"
+                        />
                 </LinearLayout>
 
-            </HorizontalScrollView>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/name_of_habit"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:fontFamily="@font/berlinsansbold"
-                android:textSize="60dp"
-                android:layout_weight="40" />
+                android:layout_weight="15">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                android:layout_weight="40">
-
-                <Button
-                    android:id="@+id/select_new_habit"
+                <ImageView
+                    android:id="@+id/choose_habit_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Далее"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40" />
-            <ImageView
-                android:layout_weight="20"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/dots2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40" />
-
-
+                    android:src="@drawable/button_go" />
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

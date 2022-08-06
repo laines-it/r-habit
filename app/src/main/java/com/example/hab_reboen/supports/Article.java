@@ -10,7 +10,7 @@ public class Article{
     String Source;
     Integer Year;
     public Article(){}
-    public Article(String Title, String Text, String Imageres,List<String> Hashtags, String Source,Integer Year) {
+    public Article(String Title, String Text, String Imageres,List<String> Hashtags, String Source,Integer Year){
         this.Title = Title;
         this.Text = Text;
         this.Imageres = Imageres;

@@ -2,20 +2,19 @@ package com.example.hab_reboen.supports.for_user;
 
 import com.example.hab_reboen.supports.Quote;
 
-import java.util.Date;
-
 public class User{
     public int id;
     public String name;
     public String email;
     public String city;
-    public Date date_birth;
+    public long date_birth;
     public int sex;
     public HiddenInfo hiddenInfo;
     public Quote quote;
+    public Habit habit;
 //    public ArrayList habits;
     public User(){}
-    public User(int id, String name, String email,String city, Date date_birth, int sex, HiddenInfo hiddenInfo,Quote quote){
+    public User(int id, String name, String email,String city, long date_birth, int sex, HiddenInfo hiddenInfo,Quote quote){
         this.quote = quote;
         this.id = id;
         this.name = name;
@@ -74,11 +73,11 @@ public class User{
         this.city = city;
     }
 
-    public Date getDate_birth() {
+    public long getDate_birth() {
         return date_birth;
     }
 
-    public void setDate_birth(Date date_birth) {
+    public void setDate_birth(long date_birth) {
         this.date_birth = date_birth;
     }
 
@@ -88,5 +87,13 @@ public class User{
 
     public void setSex(int sex) {
         this.sex = sex;
+    }
+
+    public Habit getHabit() {
+        return habit;
+    }
+
+    public void setHabit(Habit habit) {
+        this.habit = habit;
     }
 }

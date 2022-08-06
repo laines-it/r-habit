@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FindPartner"
+    android:background="@drawable/back_in_black_very_dark"
+    android:weightSum="100"
+    android:orientation="vertical">
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="4dp"
+        app:shape_roundRect_bottomLeftRadius="25dp"
+        app:shape_roundRect_bottomRightRadius="25dp"
+        app:shape_roundRect_borderWidth="1dp"
+        android:layout_weight="75">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/grad_yellow"
+            android:layout_height="match_parent"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:src="@drawable/rabbit_speaks"/>
+            <TextView
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="Мы нашли похожих на тебя, как насчет поздороваться?"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+        </LinearLayout>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="25">
+
+        <LinearLayout
+            android:id="@+id/place_for_found_partners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

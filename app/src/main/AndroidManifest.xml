@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Habreboen"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FindPartner"
+            android:exported="false" />
+        <activity
+            android:name=".HabitCalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supports.CrossActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity

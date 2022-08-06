@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hab_reboen.supports.HabitForProgress;
+import com.example.hab_reboen.supports.OnSwipeTouchListener;
 import com.example.hab_reboen.supports.for_user.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HabitCalendarActivity"
+    android:background="@drawable/grad_yellow"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ProgressBar
+            android:layout_marginTop="10dp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progress="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:progressDrawable="@drawable/progress_bar_horizontal_white"
+            android:layout_weight="95" />
+
+        <LinearLayout
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:weightSum="40">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:weightSum="100">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70"
+                    android:src="@drawable/rabbit_speaks" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="30">
+
+                    <ImageView
+
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/cloud_text_2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="20dp"
+                        android:fontFamily="@font/opensansbold"
+                        android:gravity="center"
+                        android:text="Set the start day of habit and its duration"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:orientation="vertical"
+                android:weightSum="500">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_weight="150">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_weight="1"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:elevation="4dp"
+                        android:background="@drawable/back_in_black_dark"
+                        app:shape_roundRect_bottomLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_topRightRadius="10dp"
+
+                        app:shape_roundRect_borderColor="@android:color/black"
+                        app:shape_roundRect_borderWidth="1dp"
+                        tools:ignore="NestedWeights">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:background="@drawable/back_in_black_dark"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="start"
+                                android:textColor="@color/white_our"
+                                android:gravity="center"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_weight="1"/>
+                            <TextView
+                                android:id="@+id/date_start_habit"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="start"
+                                android:textColor="@color/white_our"
+                                android:gravity="center"
+                                android:layout_weight="1"/>
+                        </LinearLayout>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_weight="1"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:elevation="4dp"
+                        android:background="@drawable/back_in_black_dark"
+                        app:shape_roundRect_bottomLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_topRightRadius="10dp"
+
+                        app:shape_roundRect_borderColor="@android:color/black"
+                        app:shape_roundRect_borderWidth="1dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:background="@drawable/back_in_black_dark"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="end"
+                                android:textColor="@color/white_our"
+                                android:gravity="center"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_weight="1"/>
+                            <TextView
+                                android:id="@+id/date_end_habit"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="start"
+                                android:textColor="@color/white_our"
+                                android:gravity="center"
+                                android:layout_weight="1"/>
+                        </LinearLayout>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                </LinearLayout>
+
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_weight="115"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:elevation="4dp"
+                        app:shape_roundRect_bottomLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_topRightRadius="10dp"
+                        app:shape_roundRect_borderColor="@android:color/black"
+                        app:shape_roundRect_borderWidth="1dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="start"
+                                android:textColor="@color/back_in_black_dark"
+                                android:gravity="center"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_weight="1"/>
+                            <TextView
+                                android:id="@+id/set_duration_habit"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="start"
+                                android:textColor="@color/white_our"
+                                android:gravity="center"
+                                android:layout_weight="1"/>
+                        </LinearLayout>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <FrameLayout
+                    android:id="@+id/frame_cal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75" >
+                    <CalendarView
+                        android:id="@+id/calendarview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        />
+                </FrameLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="110"
+                    android:text="hbfdsnb"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="100">
+
+                    <ImageView
+                        android:id="@+id/choose_habit_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/button_go" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
